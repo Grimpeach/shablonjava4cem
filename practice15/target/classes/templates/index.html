@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление объектами</title>
+    <script>
+        async function createPhone() {
+            const name = prompt("Введите название телефона:");
+            const year = prompt("Введите год создания телефона:");
+
+            const phone = {
+                name: name,
+                creationYear: parseInt(year)
+            };
+
+            try {
+                await fetch('/phones', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(phone)
+                });
+                alert('Телефон создан');
+            } catch (error) {
+                alert('Ошибка при создании телефона: ' + error.message);
+            }
+        }
+
+        async function deletePhone() {
+            const id = prompt("Введите ID телефона для удаления:");
+
+            try {
+                await fetch(`/phones/${id}`, {
+                    method: 'DELETE'
+                });
+                alert('Телефон удален');
+            } catch (error) {
+                alert('Ошибка при удалении телефона: ' + error.message);
+            }
+        }
+
+        async function getPhones() {
+            try {
+                const response = await fetch('/phones');
+                const phones = await response.json();
+                alert('Список телефонов: ' + JSON.stringify(phones, null, 2));
+            } catch (error) {
+                alert('Ошибка при получении списка телефонов: ' + error.message);
+            }
+        }
+
+        async function createManufacture() {
+            const name = prompt("Введите название производителя:");
+            const address = prompt("Введите адрес производителя:");
+
+            const manufacture = {
+                name: name,
+                address: address
+            };
+
+            try {
+                await fetch('/manufactures', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(manufacture)
+                });
+                alert('Производитель создан');
+            } catch (error) {
+                alert('Ошибка при создании производителя: ' + error.message);
+            }
+        }
+
+        async function deleteManufacture() {
+            const id = prompt("Введите ID производителя для удаления:");
+
+            try {
+                await fetch(`/manufactures/${id}`, {
+                    method: 'DELETE'
+                });
+                alert('Производитель удален');
+            } catch (error) {
+                alert('Ошибка при удалении производителя: ' + error.message);
+            }
+        }
+
+        async function getManufactures() {
+            try {
+                const response = await fetch('/manufactures');
+                const manufactures = await response.json();
+                alert('Список производителей: ' + JSON.stringify(manufactures, null, 2));
+            } catch (error) {
+                alert('Ошибка при получении списка производителей: ' + error.message);
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>Фамилия: Евсеев</h1>
+<h2>Имя: Григорий</h2>
+<h3>Группа: икбо-30-21</h3>
+<h4>Вариант: 9</h4>
+
+<h3>Телефоны:</h3>
+<button onclick="createPhone()">Создать телефон</button>
+<button onclick="deletePhone()">Удалить телефон</button>
+<button onclick="getPhones()">Получить все телефоны</button>
+
+<h3>Производители:</h3>
+<button onclick="createManufacture()">Создать производителя</button>
+<button onclick="deleteManufacture()">Удалить производителя</button>
+<button onclick="getManufactures()">Получить всех производителей</button>
+</body>
+</html>
