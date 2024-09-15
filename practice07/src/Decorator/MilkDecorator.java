@@ -12,7 +12,7 @@ class MilkDecorator extends CoffeeDecorator {
 
     @Override
     public double getCost() {
-        return super.getCost() + 10;  // Добавляем стоимость молока
+        return super.getCost() + 10;
     }
 }
 
@@ -28,6 +28,6 @@ class SugarDecorator extends CoffeeDecorator {
 
     @Override
     public double getCost() {
-        return super.getCost() + 5;  // Добавляем стоимость сахара
+        return super.getCost() + 5;
     }
 }
