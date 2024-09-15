@@ -4,13 +4,19 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class PrinterTest {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext("practice10Resources/applicationContext10.xml");
-        String arg1 = "consolePrinterBean";
-        String arg2 = "filePrinterBean";
-        Printer printer1 = context.getBean(arg1, Printer.class);
-        Printer printer2 = context.getBean(arg2, Printer.class);
-        printer1.doPrint();
-        printer2.doPrint();
+        try (ClassPathXmlApplicationContext context =
+                     new ClassPathXmlApplicationContext("practice10Resources/applicationContext10.xml")) {
+
+            String consolePrinterBean = "consolePrinterBean";
+            String filePrinterBean = "filePrinterBean";
+
+            Printer consolePrinter = context.getBean(consolePrinterBean, Printer.class);
+            Printer filePrinter = context.getBean(filePrinterBean, Printer.class);
+
+            consolePrinter.doPrint();
+            filePrinter.doPrint();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
