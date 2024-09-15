@@ -1,29 +1,29 @@
 package com.example.practice14.controllers;
 
-import com.example.practice14.entity.Manufacture;
+import com.example.practice14.model.Manufacture;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/manufactures")
 public class ManufactureController {
-    ArrayList<Manufacture> manufactures = new ArrayList<>();
 
-    @GetMapping("/manufacture")
-    public List<Manufacture> getAllManufactures(){
+    private List<Manufacture> manufactures = new ArrayList<>();
+
+    @GetMapping
+    public List<Manufacture> getManufactures() {
         return manufactures;
     }
 
-    @PostMapping("/manufacture")
-    public Manufacture addManufacture(@RequestBody Manufacture manufacture) {
+    @PostMapping
+    public void addManufacture(@RequestBody Manufacture manufacture) {
         manufactures.add(manufacture);
-        return manufacture;
     }
 
-    @DeleteMapping("/manufacture")
-    public Manufacture deleteManufacture(@RequestBody Manufacture manufacture) {
-        manufactures.remove(manufacture);
-        return manufacture;
+    @DeleteMapping("/{name}")
+    public void deleteManufacture(@PathVariable String name) {
+        manufactures.removeIf(manufacture -> manufacture.getName().equals(name));
     }
 }
