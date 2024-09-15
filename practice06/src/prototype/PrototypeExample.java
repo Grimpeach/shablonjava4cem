@@ -11,15 +11,15 @@ class Car implements Cloneable {
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        return super.clone();  // Создание копии объекта
+        return super.clone();
     }
 }
 
 public class PrototypeExample {
     public static void main(String[] args) throws CloneNotSupportedException {
         Car car1 = new Car("Tesla", 2022);
-        Car car2 = (Car) car1.clone();  // Клонирование объекта
+        Car car2 = (Car) car1.clone(); 
 
-        System.out.println(car2.model);  // Выведет: Tesla
+        System.out.println(car2.model); 
     }
 }
