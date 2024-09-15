@@ -23,7 +23,6 @@ public class Student {
         return "Student{" +
                 "name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", group='" + group + '\'' +
-                '}';
+                ", group='" + group + '\'' + '}';
     }
 }
