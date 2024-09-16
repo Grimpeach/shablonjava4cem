@@ -1,0 +1,11 @@
+org.example.practice15.model.Phone@7fa3cca
+org.example.practice15.model.Phone@7fc1bb3
+org.example.practice15.model.Phone@76b51877
+org.example.practice15.model.Phone@76bf153f
+org.example.practice15.model.Phone@20f57b4e
+org.example.practice15.model.Phone@47b3cd60
+org.example.practice15.model.Phone@199b0341
+org.example.practice15.model.Phone@1783eba0
+org.example.practice15.model.Phone@1ca7dd15
+org.example.practice15.model.Phone@4526db2c
+org.example.practice15.model.Phone@4e649c2
