@@ -46,7 +46,7 @@ public class DataExportService {
         }
     }
 
-    @Scheduled(fixedRate = 20000)  // 30 минут = 1800000 миллисекунд
+    @Scheduled(fixedRate = 1800000)  // 30 минут = 1800000 миллисекунд
     public void exportData() {
         logger.info("Starting data export...");
         clearExportDirectory();
