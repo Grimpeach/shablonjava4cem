@@ -1,0 +1,1 @@
+org.example.practice15.model.Manufacture@e885c77
